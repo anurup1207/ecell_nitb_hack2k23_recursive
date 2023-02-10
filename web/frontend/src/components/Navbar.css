@@ -2,18 +2,21 @@
 .nav{
     font-family: 'Inter';
     font-size: 27px;
-    line-height: 33px;
+    /* line-height: 33px; */
+    padding-top: 20px;
 }
 
-.navbar-nav{
-    right:0
+.navbar{
+    display: flex;
+    align-items: end;
 }
 
 .nav-item{
     font-family: 'Inter';
     font-weight: 700;
-    font-size: 19px;
+    font-size: 18px;
     line-height: 23px;
     text-align: center;
     list-style-type: circle;
 }
+
