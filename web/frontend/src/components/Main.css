@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+.row{
+    font-family: 'Inter';
+}
+
+.btn{
+    background-color: #FD6F00;
+    color:white;
+}
+
+.bank{
+    height: 100%;
+    width: 75%;
+    text-align: center;
+}
+
+.first{
+    margin-top: 6rem;
+}
