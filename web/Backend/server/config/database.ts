@@ -8,5 +8,4 @@ mongoose.connect(`${URI}`, {
 }, (err) => {
   if(err) throw err;
   console.log('Mongodb connection')
-  
 })
