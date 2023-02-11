@@ -33,8 +33,8 @@ function Content() {
             <h4>Enter your credentials</h4>
             <input className="mt-3 text-center colour rounded-2" type="text" name="user" id="" placeholder="User ID" style={{width:'80%',paddingTop:'0.5rem',paddingBottom:'0.5rem'}}/><br />
             {/* <textarea name="pattern" className="mt-3 text-center colour rounded-3" id="" cols="50" rows="10" placeholder="Draw your pattern"></textarea><br /> */}
-            <div className="patt colour mt-3 m-auto" >
-                <text className="text-center" style={{opacity:'.7',justifyContent:'center'}}>Draw your pattern</text>
+            <div className="patt colour mt-3 m-auto rounded-3" >
+                <text className="text-center " style={{opacity:'.7',justifyContent:'center',border: '2px solid',}}>Draw your pattern</text>
             </div>
             <p className="mt-2 text-end " style={{right:'7rem',position:'relative'}}>Recover Password?</p>
             <button type="button" class="btn btn-primary mt-3" style={{width:'80%'}}>Sign in</button>
