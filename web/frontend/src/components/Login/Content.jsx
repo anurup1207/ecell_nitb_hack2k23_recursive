@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Content.css";
 
 function Content() {
@@ -15,7 +16,7 @@ function Content() {
               <p className="content mt-3">
                 if you don't have an <br />
                 account you can <br />
-               <a href="" style={{color:'#4461F2',textDecoration:'none'}}>Register here!</a> 
+               <Link to="/register" style={{color:'#4461F2',textDecoration:'none'}}>Register here!</Link> 
               </p>
             </div>
             <div className="col-7">
