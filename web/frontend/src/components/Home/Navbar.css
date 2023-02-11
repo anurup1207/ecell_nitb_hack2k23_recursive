@@ -1,17 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-.nav{
+/* @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap'); */
+.navi{
     font-family: 'Inter';
     font-size: 27px;
-    /* line-height: 33px; */
-    padding-top: 20px;
+    line-height: 33px;
 }
 
-.navbar{
-    display: flex;
-    align-items: end;
-}
-
-.nav-item{
+.right{
     font-family: 'Inter';
     font-weight: 700;
     font-size: 18px;

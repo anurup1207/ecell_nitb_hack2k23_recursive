@@ -1,0 +1,45 @@
+.ib1 {
+    margin-top: 8rem;
+    padding-left: 6rem;
+    font-family: 'Phetsarath';
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.ib2{
+    text-align: center;
+    font-family: 'Phetsarath';
+    margin-top: 3rem;
+}
+
+.image {
+    text-align: right;
+}
+
+.heading {
+
+    font-family: 'Phetsarath';
+    font-size: 2.8rem;
+    /* font-weight: 700; */
+}
+
+.patt{
+    height: 50%;
+    width: 80%;
+}
+
+.content {
+    font-size: 23px;
+    word-spacing: 4px;
+}
+
+
+#grad {
+    background-image: radial-gradient(circle, #8a5cc85c, #52299f00, #8fdcb300);
+}
+
+.colour{
+    background-color: #EAF0F7;
+}
+
+

@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap'); */
 .row{
     font-family: 'Inter';
 }
 
-.btn{
+.button{
     background-color: #FD6F00;
     color:white;
 }
