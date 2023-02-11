@@ -6,5 +6,4 @@ const routes = [
   userRouter,
   notificationRouter,
 ];
-
 export default routes;
