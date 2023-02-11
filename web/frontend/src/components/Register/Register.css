@@ -1,0 +1,54 @@
+@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.mainLoginInput{
+  height: 40px;
+  padding: 0px;
+  font-size: 15px;
+  margin: 5px 0;
+  width: 45%;
+}
+
+.mainLoginInput::-webkit-input-placeholder { 
+font-family: FontAwesome;
+font-weight: normal;
+overflow: visible;
+vertical-align: top;
+display: inline-block !important;
+padding-left: 5px;
+padding-top: 2px;
+opacity: 0.8;
+color:'#333333'
+}
+
+.mainLoginInput::-moz-placeholder  { 
+font-family: FontAwesome;
+font-weight: normal;
+overflow: visible;
+vertical-align: top;
+display: inline-block !important;
+padding-left: 5px;
+padding-top: 2px;
+color: hsl(9, 40%, 60%);
+}
+
+.mainLoginInput:-ms-input-placeholder  { 
+font-family: FontAwesome;
+font-weight: normal;
+overflow: visible;
+vertical-align: top;
+display: inline-block !important;
+padding-left: 5px;
+padding-top: 2px;
+color: hsl(9, 40%, 60%);
+}
+
+.backColor{
+    background-image: linear-gradient(#0575E6,#02298A,#021B79);
+    color:white;
+    padding-top: 20%;
+}
+
+.fnt{
+    font-family: 'Poppins';
+}
