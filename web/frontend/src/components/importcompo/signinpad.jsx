@@ -1,7 +1,7 @@
-import React from "react";
+import React,{useState} from "react";
 import "./pad.css";
 function Pad() {
-  const [start, setStart] = useStte(false);
+  const [start, setStart] = useState(false);
   const signstart = () => {
 
   };
