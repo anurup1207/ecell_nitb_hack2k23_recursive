@@ -21,7 +21,9 @@ function Pad() {
       window.removeEventListener("mousemove", handleMouseMove);
     };
   }, [start]);
-  useEffect(() => {}, [mousePos]);
+  useEffect(() => {
+    
+  }, [mousePos]);
 
   return (
     <div
@@ -31,7 +33,7 @@ function Pad() {
     >
       <div id="watermark">Draw your Pattern</div>
     </div>
-  );
+  );2
 }
 
 export default Pad;
