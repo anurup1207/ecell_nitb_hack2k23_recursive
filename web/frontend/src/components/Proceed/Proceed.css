@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+#watermark {
+    position: absolute;
+    bottom: 40%;
+    right: 30%;
+    z-index: 999;
+    opacity: 0.18;
+    cursor: context-menu;
+    font-size: 1.5rem;
+}
+
+#drawpad {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    z-index: 999;
+    height: 10rem;
+}
+
+.patt {
+    height: 50vh;
+    width: 80%;
+}
