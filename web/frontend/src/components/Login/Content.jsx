@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Pad from "../importcompo/signinpad";
+import Pad from "../importcompo/signuppad";
 import "./Content.css";
 // import Pad from "../importcompo/signuppad.jsx";
 
@@ -46,7 +46,7 @@ function Content() {
             id=""
             placeholder="User ID"
             style={{
-              width: "80%",
+              width: "400px", 
               paddingTop: "0.5rem",
               paddingBottom: "0.5rem",
             }}
@@ -63,7 +63,7 @@ function Content() {
           <button
             type="button"
             className="btn btn-primary mt-3"
-            style={{ width: "80%" }}
+            style={{ width: "400px" }}
           >
             Sign in
           </button>

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./pad.css";
+import ReactDOM from "react-dom";
+import CanvasDraw from "react-canvas-draw";
 
 function Pad() {
-  const canvas = document.getElementById("drawpad");
-  const paintboard = canvas.getContext("2d");
   const [start, setStart] = useState(false);
   const [mousePos, setMousePos] = useState({});
   const signstart = () => {
@@ -21,19 +21,25 @@ function Pad() {
       window.removeEventListener("mousemove", handleMouseMove);
     };
   }, [start]);
-  useEffect(() => {
-    
-  }, [mousePos]);
+  useEffect(() => {}, [mousePos]);
 
   return (
-    <div
-      className="patt colour mt-3 m-auto rounded-3"
-      id="drawpad"
-      onClick={signstart}
-    >
-      <div id="watermark">Draw your Pattern</div>
+    <div>
+      <div id="watermark">Draw Here    </div>
+      <div
+        className="patt"
+        id="drawpad"
+        style={{ height: 300, marginTop: 10, marginLeft: 110 }}
+      >
+        <CanvasDraw
+          canvasWidth={400}
+          canvasHeight={300}
+          backgroundColor={"#EAF0F7"}
+          brushRadius={10}
+        />
+      </div>
     </div>
-  );2
+  );
 }
 
 export default Pad;
