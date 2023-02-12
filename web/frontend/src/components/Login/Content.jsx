@@ -2,6 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Pad from "../importcompo/signinpad";
 import "./Content.css";
+<<<<<<< HEAD
+=======
+import Pad from "../importcompo/signuppad.jsx";
+>>>>>>> 93fd78a1a629dd63a8d69a6e264fb281e776933d
 
 function Content() {
   return (
@@ -17,7 +21,12 @@ function Content() {
               <p className="content mt-3">
                 if you don't have an <br />
                 account you can <br />
-               <Link to="/register" style={{color:'#4461F2',textDecoration:'none'}}>Register here!</Link> 
+                <Link
+                  to="/register"
+                  style={{ color: "#4461F2", textDecoration: "none" }}
+                >
+                  Register here!
+                </Link>
               </p>
             </div>
             <div className="col-7">
@@ -56,7 +65,7 @@ function Content() {
           </p>
           <button
             type="button"
-            class="btn btn-primary mt-3"
+            className="btn btn-primary mt-3"
             style={{ width: "80%" }}
           >
             Sign in

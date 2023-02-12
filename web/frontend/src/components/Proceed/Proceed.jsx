@@ -18,9 +18,9 @@ const Proceed = () => {
         />
       </div>
       <div className="col-6 mt-4" style={{ borderRadius: "50rem" }}>
-        <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+        <nav className="navbar navbar-expand-lg navbar-light bg-transparent">
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -28,13 +28,13 @@ const Proceed = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 pos ">
-              <li class="nav-item dropdown m-4">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0 pos ">
+              <li className="nav-item dropdown m-4">
                 <a
-                  class="nav-link dropdown-toggle"
+                  className="nav-link dropdown-toggle"
                   href="/"
                   id="navbarDropdown"
                   role="button"
@@ -43,19 +43,19 @@ const Proceed = () => {
                 >
                   English
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <a class="dropdown-item" href="/">
+                    <a className="dropdown-item" href="/">
                       Hindi
                     </a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="/">
+                    <a className="dropdown-item" href="/">
                       Spanish
                     </a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="/">
+                    <a className="dropdown-item" href="/">
                       Chinese
                     </a>
                   </li>

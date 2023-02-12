@@ -14,7 +14,7 @@ function App() {
           <p>Register Your Organization</p>
           <form >
             <input
-              class="mainLoginInput rounded-3 ps-2"
+              className="mainLoginInput rounded-3 ps-2"
               type="text"
               // value={user}
               name='user'
@@ -22,13 +22,13 @@ function App() {
             />{" "}
             <br />
             <input
-              class="mainLoginInput rounded-3 ps-2"
+              className="mainLoginInput rounded-3 ps-2"
               type="text"
               placeholder="&#61442; Email Address"
             />{" "}
             <br />
             <input
-              class="mainLoginInput rounded-3 ps-2"
+              className="mainLoginInput rounded-3 ps-2"
               type="password"
               placeholder="&#61475; Password"
             />{" "}
