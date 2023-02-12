@@ -9,91 +9,32 @@ const userSchema = new mongoose.Schema(
       trim: true,
       maxLength: [30, "Your name is up to 20 chars long."],
     },
-    account: {
-      type: String,
-      required: [true, "Please add your email or phone"],
+    accountno: {
+      type: Number,
+      required: [true, "Please add your Bank account no"],
       trim: true,
       unique: true,
     },
-    about: {
+    email: {
       type: String,
+      required: [true, "Please add your Bank account no"],
       trim: true,
-      default: "I am using PediaGeek to Connect ,Learn and Grow.",
+      unique: true,
     },
-    paytm: {
-      type: String,
-      trim: true,
-    },
-    blogcount: {
+    adharno: {
       type: Number,
-      default: 0,
-    },
-    referer: {
-      type: String,
-      default: "PediaGeek",
-    },
-    password: {
-      type: String,
-      required: [true, "Please add your password"],
-    },
-    avatar: {
-      type: String,
-      default:
-        "https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png",
-    },
-    role: {
-      type: String,
-      default: "user", // admin
-    },
-    type: {
-      type: String,
-      default: "register", // login
-    },
-    follower: [
-      {
-        type: mongoose.Types.ObjectId,
-        ref: "Users",
-        default: [],
-      },
-    ],
-    following: [
-      {
-        type: mongoose.Types.ObjectId,
-        ref: "Users",
-        default: [],
-      },
-    ],
-    notice: {
-      type: Boolean,
-      default: false,
-    },
-    preferance: {
-      type: Boolean,
-      default: false,
-    },
-    locality: {
-      type: String,
+      required: [true, "Please add your Adhar number"],
       trim: true,
-      maxLength: 100,
+      unique: true,
     },
-    city: { type: String, trim: true, maxLength: 100 },
-    state: { type: String, trim: true, maxLength: 100 },
-    country: { type: String, trim: true, maxLength: 100 },
-    language: [{ type: mongoose.Types.ObjectId, ref: "user" }],
-    categoryid: [{ type: mongoose.Types.ObjectId, ref: "category" }],
-    interest: [{ type: String }],
-    isdark: {
-      type: Boolean,
-      default: true,
+    password1: {
+      type: Buffer,
+      required: [true, "Please add your sign1 here"],
     },
-    birthday: {
-      type: Date,
+    password2: {
+      type: Buffer,
+      required: [true, "Please add your sign2 here"],
     },
-    work: { type: String, trim: true, maxLength: 100 },
-    aspire: { type: String, trim: true, maxLength: 100 },
-    gender: { type: String, trim: true, length: 1 },
-    organization: { type: String, trim: true, maxLength: 100 },
-    rf_token: { type: String, select: false },
   },
   {
     timestamps: true,
