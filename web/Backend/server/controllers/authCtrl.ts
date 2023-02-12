@@ -24,24 +24,24 @@ const CLIENT_URL = `${process.env.BASE_URL}`;
 const authCtrl = {
   register: async (req: Request, res: Response) => {
     try {
-      const { name, account, password, referer } = req.body;
+      const { name, accountno, email , uidai } = req.body;
 
-      const user = await Users.findOne({ account });
+      const user = await Users.findOne({ email });
       if (user)
         return res
           .status(400)
           .json({ msg: "Email or Phone number already exists." });
 
-      const passwordHash = await bcrypt.hash(password, 12);
+      // const passwordHash = await bcrypt.hash(password, 12);
 
-      const newUser = { name, account, password: passwordHash, referer };
+      const newUser = { name, accountno, email , uidai };
 
       const active_token = generateActiveToken({ newUser });
 
       const url = `${CLIENT_URL}/active/${active_token}`;
 
-      if (validateEmail(account)) {
-        sendMail(account, url, "Verify your email address");
+      if (validateEmail(email)) {
+        sendMail(email, url, "Verify your email address");
         return res.json({ msg: "Success! Please check your email." });
       }
     } catch (err: any) {
