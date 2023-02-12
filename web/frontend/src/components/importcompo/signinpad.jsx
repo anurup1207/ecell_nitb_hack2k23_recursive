@@ -6,7 +6,7 @@ function Pad() {
 
   };
   return (
-    <div className="patt colour mt-3 m-auto rounded-3" id="drawpad">
+    <div className="patt colour mt-3 m-auto rounded-3" id="drawpad" style={{marginLeft:'110px'}}>
       {/* <text
         className="text-center "
         style={{
