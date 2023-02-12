@@ -13,8 +13,6 @@ router.post('/login', authCtrl.login)
 
 router.get('/logout', auth, authCtrl.logout)
 
-router.get('/refresh_token', authCtrl.refreshToken)
-
 router.post('/forgot_password', authCtrl.forgotPassword)
 
 
