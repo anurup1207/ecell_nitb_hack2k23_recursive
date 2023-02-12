@@ -1,6 +1,6 @@
 import React from "react";
 import "./Content.css";
-import pad from "../importcompo/pad";
+import Pad from "../importcompo/pad";
 
 function Content() {
   return (
@@ -51,7 +51,7 @@ function Content() {
           />
           <br />
           {/* <textarea name="pattern" className="mt-3 text-center colour rounded-3" id="" cols="50" rows="10" placeholder="Draw your pattern"></textarea><br /> */}
-          <pad />
+          <Pad />
           <p
             className="mt-2 text-end "
             style={{ right: "7rem", position: "relative" }}

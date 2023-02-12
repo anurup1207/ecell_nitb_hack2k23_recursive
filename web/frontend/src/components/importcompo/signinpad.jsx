@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Main.css";
-
+import "./pad.css";
 function Pad() {
-  return (
-    <div className="patt colour mt-3 m-auto rounded-3">
-      <text
+    
+    return (
+    <div className="patt colour mt-3 m-auto rounded-3" id="drawpad">
+      {/* <text
         className="text-center "
         style={{
           opacity: ".7",
@@ -14,7 +14,9 @@ function Pad() {
         }}
       >
         Draw your pattern
-      </text>
+      </text> */}
+      <div id="watermark">Draw your Pattern</div>
+      
     </div>
   );
 }
