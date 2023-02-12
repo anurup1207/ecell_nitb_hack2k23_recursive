@@ -24,15 +24,9 @@ const CLIENT_URL = `${process.env.BASE_URL}`;
 const authCtrl = {
   register: async (req: Request, res: Response) => {
     try {
-<<<<<<< HEAD
       const { name, accountno,email,uidai} = req.body;
 
       const user = await Users.findOne({ email});
-=======
-      const { name, accountno, email , uidai } = req.body;
-
-      const user = await Users.findOne({ email });
->>>>>>> 93fd78a1a629dd63a8d69a6e264fb281e776933d
       if (user)
         return res
           .status(400)
@@ -40,11 +34,7 @@ const authCtrl = {
 
       // const passwordHash = await bcrypt.hash(password, 12);
 
-<<<<<<< HEAD
       const newUser = { name, accountno,email,uidai };
-=======
-      const newUser = { name, accountno, email , uidai };
->>>>>>> 93fd78a1a629dd63a8d69a6e264fb281e776933d
 
       const active_token = generateActiveToken({ newUser });
 

@@ -2,10 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Pad from "../importcompo/signinpad";
 import "./Content.css";
-<<<<<<< HEAD
-=======
 import Pad from "../importcompo/signuppad.jsx";
->>>>>>> 93fd78a1a629dd63a8d69a6e264fb281e776933d
 
 function Content() {
   return (
