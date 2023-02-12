@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./pad.css";
 function Pad() {
   const [start, setStart] = useStte(false);

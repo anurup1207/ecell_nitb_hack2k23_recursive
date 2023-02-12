@@ -4,13 +4,13 @@ import "./Nav.css";
 function Nav() {
   return (
     <>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand ps-5 fs-3" href="/">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="container-fluid">
+          <a className="navbar-brand ps-5 fs-3" href="/">
             MANIT <span style={{ color: "#FD6F00" }}>Bank</span>
           </a>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -18,31 +18,31 @@ function Nav() {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 manit">
-              <li class="nav-item m-4">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0 manit">
+              <li className="nav-item m-4">
                 <a
-                  class="nav-link active text-primary"
+                  className="nav-link active text-primary"
                   aria-current="page"
                   href="/"
                 >
                   About
                 </a>
               </li>
-              <li class="nav-item m-4">
+              <li className="nav-item m-4">
                 <a
-                  class="nav-link active text-primary"
+                  className="nav-link active text-primary"
                   aria-current="page"
                   href="/"
                 >
                   Contact
                 </a>
               </li>
-              <li class="nav-item dropdown m-4">
+              <li className="nav-item dropdown m-4">
                 <a
-                  class="nav-link dropdown-toggle"
+                  className="nav-link dropdown-toggle"
                   href="/"
                   id="navbarDropdown"
                   role="button"
@@ -51,19 +51,19 @@ function Nav() {
                 >
                   English
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <a class="dropdown-item" href="/">
+                    <a className="dropdown-item" href="/">
                       Hindi
                     </a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="/">
+                    <a className="dropdown-item" href="/">
                       Spanish
                     </a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="/">
+                    <a className="dropdown-item" href="/">
                       Chinese
                     </a>
                   </li>

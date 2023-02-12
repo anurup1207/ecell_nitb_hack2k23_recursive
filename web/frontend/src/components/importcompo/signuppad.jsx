@@ -1,8 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import "./pad.css";
+
 function Pad() {
-  const [start, setStart] = useStte(false);
+  const [start, setStart] = useState(false);
   const [mousePos, setMousePos] = useState({});
   const signstart = () => {
     setStart(true);
@@ -12,7 +12,6 @@ function Pad() {
     const handleMouseMove = (event) => {
       setMousePos({ x: event.clientX, y: event.clientY });
       console.log(mousePos);
-      
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -23,10 +22,12 @@ function Pad() {
   }, [start]);
 
   return (
-    <div className="patt colour mt-3 m-auto rounded-3" id="drawpad">
-      <div id="watermark" onclick="signstart()">
-        Draw your Pattern
-      </div>
+    <div
+      className="patt colour mt-3 m-auto rounded-3"
+      id="drawpad"
+      
+    >
+      <div id="watermark">Draw your Pattern</div>
     </div>
   );
 }
