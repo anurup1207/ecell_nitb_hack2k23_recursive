@@ -9,6 +9,11 @@ const userSchema = new mongoose.Schema(
       trim: true,
       maxLength: [30, "Your name is up to 20 chars long."],
     },
+    companyid: {
+      type: mongoose.Types.ObjectId,
+      ref: "Company",
+      required: [true, "Please provide your company id"],
+    },
     accountno: {
       type: Number,
       required: [true, "Please add your Bank account no"],
