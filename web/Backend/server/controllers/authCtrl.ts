@@ -12,13 +12,11 @@ import { validateEmail } from "../middleware/vaild";
 import {
   IDecodedToken,
   IUser,
-  IGgPayload,
   IUserParams,
   IReqAuth,
 } from "../config/interface";
 import { OAuth2Client } from "google-auth-library";
 import notificationCtrl from "./noticeCtrl";
-import Preferances from "../models/preferanceModel";
 
 const client = new OAuth2Client(`${process.env.MAIL_CLIENT_ID}`);
 const CLIENT_URL = `${process.env.BASE_URL}`;
@@ -45,7 +43,7 @@ const authCtrl = {
       if (validateEmail(account)) {
         sendMail(account, url, "Verify your email address");
         return res.json({ msg: "Success! Please check your email." });
-      } 
+      }
     } catch (err: any) {
       return res.status(500).json({ msg: err.message });
     }
@@ -78,15 +76,6 @@ const authCtrl = {
           newuser.name +
           "on behalf of whole pediageek team we welcome you to the platform.Try each and every feature on platform make your own brand on the platform."
       );
-      if (newuser.referer !== "")
-        notificationCtrl.addNotification(
-          newuser.referer,
-          "Referal Update 🎁🎁.",
-          "Hii! " +
-            newuser.name +
-            " have joined using your refral link tell him to write his first blog to earn referal reward both.",
-          "/profile/" + newuser._id
-        );
       res.json({ msg: "Account has been activated!" });
     } catch (err: any) {
       return res.status(500).json({ msg: err.message });
@@ -125,172 +114,6 @@ const authCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
-  refreshToken: async (req: Request, res: Response) => {
-    try {
-      const rf_token = req.cookies.refreshtoken;
-      if (!rf_token) return res.status(400).json({ msg: "Please login now!" });
-
-      const decoded = <IDecodedToken>(
-        jwt.verify(rf_token, `${process.env.REFRESH_TOKEN_SECRET}`)
-      );
-      if (!decoded.id)
-        return res.status(400).json({ msg: "Please login now!" });
-
-      const user = await Users.findById(decoded.id).select(
-        "-password +rf_token"
-      );
-      if (!user)
-        return res.status(400).json({ msg: "This account does not exist." });
-
-      if (rf_token !== user.rf_token)
-        return res.status(400).json({ msg: "Please login now!" });
-
-      const access_token = generateAccessToken({ id: user._id });
-      const refresh_token = generateRefreshToken({ id: user._id }, res);
-
-      await Users.findOneAndUpdate(
-        { _id: user._id },
-        {
-          rf_token: refresh_token,
-        }
-      );
-
-      const client = await Users.aggregate([
-        {
-          $match: {
-            _id: user._id,
-          },
-        },
-        {
-          $project: {
-            avatar: 1,
-            role: 1,
-            type: 1,
-            name: 1,
-            account: 1,
-            password: "",
-            createdAt: 1,
-            updatedAt: 1,
-            rf_token: 1,
-            about: 1,
-            follower: {
-              $size: "$follower",
-            },
-            following: {
-              $size: "$following",
-            },
-            blogcount: 1,
-            referer: 1,
-            notice: 1,
-            preferance: 1,
-            followinglist: "$following",
-          },
-        },
-      ]);
-
-      const pref = await Preferances.findOne({
-        _id: user._id,
-      }).select(["-_id", "-interest", "-categoryid"]);
-
-      return res.json({
-        msg: "Login Success!",
-        access_token,
-        user: { ...client[0], ...pref },
-      });
-    } catch (err: any) {
-      return res.status(500).json({ msg: err.message });
-    }
-  },
-  googleLogin: async (req: Request, res: Response) => {
-    try {
-      const { id_token } = req.body;
-      const referer = req.body.referer?.referer;
-
-      const verify = await client.verifyIdToken({
-        idToken: id_token,
-        audience: `${process.env.MAIL_CLIENT_ID}`,
-      });
-
-      const { email, email_verified, name, picture } = <IGgPayload>(
-        verify.getPayload()
-      );
-
-      if (!email_verified)
-        return res.status(500).json({ msg: "Email verification failed." });
-
-      const password = email + " @ 67 love u baby@ #";
-      const passwordHash = await bcrypt.hash(password, 12);
-
-      const user = await Users.findOne({ account: email });
-
-      if (user) {
-        const access_token = generateAccessToken({ id: user._id });
-        const refresh_token = generateRefreshToken({ id: user._id }, res);
-
-        await Users.findOneAndUpdate(
-          { _id: user._id },
-          {
-            rf_token: refresh_token,
-          }
-        );
-
-        const client = await Users.aggregate([
-          {
-            $match: {
-              _id: user._id,
-            },
-          },
-          {
-            $project: {
-              avatar: 1,
-              role: 1,
-              type: 1,
-              name: 1,
-              account: 1,
-              password: "",
-              createdAt: 1,
-              updatedAt: 1,
-              rf_token: 1,
-              about: 1,
-              follower: {
-                $size: "$follower",
-              },
-              following: {
-                $size: "$following",
-              },
-              blogcount: 1,
-              referer: 1,
-              notice: 1,
-              preferance: 1,
-              followinglist: "$following",
-            },
-          },
-        ]);
-
-        const pref = await Preferances.findOne({
-          _id: user._id,
-        }).select(["-_id", "-interest", "-categoryid"]);
-
-        return res.json({
-          msg: "Login Success!",
-          access_token,
-          user: { ...client[0], ...pref },
-        });
-      } else {
-        const user = {
-          name: name.slice(0, 29),
-          account: email,
-          password: passwordHash,
-          avatar: picture,
-          type: "google",
-          referer: referer,
-        };
-        registerUser(user, res);
-      }
-    } catch (err: any) {
-      return res.status(500).json({ msg: err.message });
-    }
-  },
   forgotPassword: async (req: Request, res: Response) => {
     try {
       const { account } = req.body;
@@ -319,7 +142,7 @@ const authCtrl = {
 };
 
 const loginUser = async (user: IUser, password: string, res: Response) => {
-  const isMatch = await bcrypt.compare(password, user.password);
+  const isMatch = true; //here to call python api for validation
 
   if (!isMatch) {
     let msgError =
@@ -372,14 +195,10 @@ const loginUser = async (user: IUser, password: string, res: Response) => {
     },
   ]);
 
-  const pref = await Preferances.findOne({
-    _id: user._id,
-  }).select(["-_id", "-interest", "-categoryid"]);
-
   return res.json({
     msg: "Login Success!",
     access_token,
-    user: { ...client[0], ...pref },
+    user: client[0],
   });
 };
 
@@ -389,7 +208,6 @@ const registerUser = async (user: IUserParams, res: Response) => {
   const access_token = generateAccessToken({ id: newUser._id });
   const refresh_token = generateRefreshToken({ id: newUser._id }, res);
 
-  newUser.rf_token = refresh_token;
   const regUser = await newUser.save();
   notificationCtrl.addNotification(
     regUser._id,
@@ -399,15 +217,6 @@ const registerUser = async (user: IUserParams, res: Response) => {
       regUser.name +
       " on behalf of whole pediageek team we welcome you to the platform. Create your First blog and earn 200-250 Rs. on evry 1000 Views on your blog."
   );
-  if (regUser.referer !== "")
-    notificationCtrl.addNotification(
-      regUser.referer,
-      "Referal Update 🎁🎁.",
-      "Hii! " +
-        regUser.name +
-        " have joined using your refral link tell him to write his first blog to earn referal reward both.",
-      "/profile/" + regUser._id
-    );
   res.json({
     msg: "Registration success!",
     access_token,
