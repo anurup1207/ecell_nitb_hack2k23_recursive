@@ -2,8 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./pad.css";
 function Pad() {
-    
-    return (
+  const [start, setStart] = useStte(false);
+  const signstart = () => {
+
+  };
+  return (
     <div className="patt colour mt-3 m-auto rounded-3" id="drawpad">
       {/* <text
         className="text-center "
@@ -15,8 +18,9 @@ function Pad() {
       >
         Draw your pattern
       </text> */}
-      <div id="watermark">Draw your Pattern</div>
-      
+      <div id="watermark" onclick="signstart()">
+        Draw your Pattern
+      </div>
     </div>
   );
 }
